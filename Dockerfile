@@ -6,7 +6,6 @@ WORKDIR /app
 COPY . .
 
 RUN pip install -r requirements.txt  
-RUN pip install kensu-1.7.2.0.tar.gz 
 
 WORKDIR /app/python_code
 
