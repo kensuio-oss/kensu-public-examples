@@ -26,7 +26,7 @@ spark.sparkContext.setLogLevel("OFF")
 
 #Init Kensu
 
-init_kensu_spark(spark,explicit_process_name = "Reporting",kensu_py_client=True)
+init_kensu_spark(spark,explicit_process_name = "Reporting",input_stats=False,kensu_py_client=True)
 
 
 
