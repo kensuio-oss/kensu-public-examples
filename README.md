@@ -26,4 +26,3 @@ This repo contains the materials linked to the Kensu Sandbox use case.
 ### As a docker image
 
 Please make sure to modify the `conf.ini` file before building the image, follow the steps on https://docs.kensu.io/installation-and-configuration
-
