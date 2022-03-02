@@ -22,7 +22,7 @@ from kensu.pyspark import init_kensu_spark
 
 #Inject Kensu agent in spark session: Add the path to the .jar to the SparkSession
 spark = SparkSession.builder.appName("Example")\
-    .config("spark.driver.extraClassPath", "../lib/kensu-dam-spark-collector-0.17.2_spark-3.0.1.jar")\
+    .config("spark.driver.extraClassPath", "../lib/kensu-dam-spark-collector-0.17.3_spark-3.0.1.jar")\
     .getOrCreate()
 spark.sparkContext.setLogLevel("OFF")
 
