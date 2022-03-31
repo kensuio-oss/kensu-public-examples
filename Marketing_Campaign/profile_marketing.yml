@@ -1,0 +1,12 @@
+profile_marketing:
+  outputs:
+    dev:
+      type: postgres
+      threads: 1
+      host: host.docker.internal
+      port: 5432
+      user: postgres
+      pass: postgresPass
+      dbname: testme
+      schema: testme_schema
+  target: dev
