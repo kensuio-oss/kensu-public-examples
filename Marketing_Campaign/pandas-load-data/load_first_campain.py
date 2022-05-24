@@ -1,11 +1,7 @@
 import urllib3, datetime
 urllib3.disable_warnings()
 
-from kensu.utils.kensu_provider import KensuProvider
-k = KensuProvider().initKensu(project_names=["Marketing"],process_name='Python :: Data_Load',input_stats=True)
-
-
-import kensu.pandas as pd
+import pandas as pd
 from sqlalchemy import create_engine
 
 customers = pd.read_csv("first_campaign/customer_list.csv")
