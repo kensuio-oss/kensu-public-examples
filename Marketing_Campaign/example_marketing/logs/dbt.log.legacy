@@ -16,3 +16,14 @@
 2022-03-30 08:33:56.832520 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.3', 38176), raddr=('13.37.173.147', 443)>
 2022-03-30 08:34:58.707375 (Thread-1): unclosed <ssl.SSLSocket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.3', 38218), raddr=('13.37.173.147', 443)>
 2022-03-30 08:35:02.777122 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.26.0.3', 38226), raddr=('13.37.173.147', 443)>
+2022-05-24 11:43:15.391518 (MainThread): 'soft_unicode' has been renamed to 'soft_str'. The old name will be removed in MarkupSafe 2.1.
+2022-05-24 11:43:23.054304 (Thread-1): unclosed <ssl.SSLSocket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 59750), raddr=('13.37.173.147', 443)>
+2022-05-24 11:43:25.950293 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 59758), raddr=('13.37.173.147', 443)>
+2022-05-24 11:44:10.247435 (Thread-1): unclosed <ssl.SSLSocket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 59794), raddr=('13.37.173.147', 443)>
+2022-05-24 11:44:12.435945 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 59802), raddr=('13.37.173.147', 443)>
+2022-05-24 12:02:29.239184 (Thread-1): unclosed <ssl.SSLSocket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 39790), raddr=('13.37.164.25', 443)>
+2022-05-24 12:02:31.698881 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 39798), raddr=('13.37.164.25', 443)>
+2022-05-24 12:09:03.213109 (Thread-1): unclosed <ssl.SSLSocket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 39838), raddr=('13.37.164.25', 443)>
+2022-05-24 12:09:05.111711 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 39846), raddr=('13.37.164.25', 443)>
+2022-05-24 12:39:32.793008 (Thread-1): unclosed <ssl.SSLSocket fd=7, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 57196), raddr=('15.188.249.78', 443)>
+2022-05-24 12:39:35.057600 (Thread-1): unclosed <ssl.SSLSocket fd=9, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.18.0.3', 57204), raddr=('15.188.249.78', 443)>

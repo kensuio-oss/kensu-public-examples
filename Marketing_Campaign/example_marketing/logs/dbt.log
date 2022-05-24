@@ -2504,3 +2504,1236 @@ drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
 08:35:05.946201 [info ] [MainThread]: 
 08:35:05.952020 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 08:35:05.958660 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038af5d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077017c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cee4940>]}
+
+
+============================== 2022-05-24 11:43:13.788538 | 93132d5c-58d1-4a22-b4fe-533c7fa3fd8d ==============================
+11:43:13.789927 [info ] [MainThread]: Running with dbt=1.0.1
+11:43:13.804180 [debug] [MainThread]: running dbt with arguments {'debug': True, 'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'project_dir': '/kensu-dbt-example/dbt-projects/example_marketing', 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+11:43:13.809128 [debug] [MainThread]: Tracking: tracking
+11:43:13.884754 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076c75e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076c7f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076c7fd0>]}
+11:43:14.543563 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+11:43:14.550920 [debug] [MainThread]: Partial parsing: update schema file: Marketing://models/example/schema.yml
+11:43:14.761756 [debug] [MainThread]: 1699: static parser successfully parsed example/contact_list.sql
+11:43:15.560440 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '93132d5c-58d1-4a22-b4fe-533c7fa3fd8d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077bb040>]}
+11:43:15.711303 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '93132d5c-58d1-4a22-b4fe-533c7fa3fd8d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x400764ec40>]}
+11:43:15.728037 [info ] [MainThread]: Found 2 models, 1 test, 0 snapshots, 0 analyses, 165 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+11:43:15.751602 [info ] [MainThread]: 
+11:43:15.759091 [debug] [MainThread]: Acquiring new postgres connection "master"
+11:43:15.792389 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme"
+11:43:15.902735 [debug] [ThreadPool]: Using postgres connection "list_testme"
+11:43:15.915011 [debug] [ThreadPool]: On list_testme: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme"} */
+
+    select distinct nspname from pg_namespace
+  
+11:43:15.919840 [debug] [ThreadPool]: Opening a new connection, currently in state init
+11:43:16.158084 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.24 seconds
+11:43:20.502780 [debug] [ThreadPool]: On list_testme: Close
+11:43:20.517929 [debug] [ThreadPool]: Acquiring new postgres connection "create_testme_testme_schema"
+11:43:20.524061 [debug] [ThreadPool]: Acquiring new postgres connection "create_testme_testme_schema"
+11:43:20.530062 [debug] [ThreadPool]: Creating schema "_ReferenceKey(database='testme', schema='testme_schema', identifier=None)"
+11:43:20.573560 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+11:43:20.578275 [debug] [ThreadPool]: On create_testme_testme_schema: BEGIN
+11:43:20.582118 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+11:43:20.691663 [debug] [ThreadPool]: SQL status: BEGIN in 0.11 seconds
+11:43:20.695910 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+11:43:20.699792 [debug] [ThreadPool]: On create_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "create_testme_testme_schema"} */
+create schema if not exists "testme_schema"
+11:43:20.708621 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.01 seconds
+11:43:21.173705 [debug] [ThreadPool]: On create_testme_testme_schema: COMMIT
+11:43:21.184500 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+11:43:21.193173 [debug] [ThreadPool]: On create_testme_testme_schema: COMMIT
+11:43:21.206767 [debug] [ThreadPool]: SQL status: COMMIT in 0.01 seconds
+11:43:21.212833 [debug] [ThreadPool]: On create_testme_testme_schema: Close
+11:43:21.235304 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme_testme_schema"
+11:43:21.423341 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+11:43:21.431637 [debug] [ThreadPool]: On list_testme_testme_schema: BEGIN
+11:43:21.436114 [debug] [ThreadPool]: Opening a new connection, currently in state init
+11:43:21.553086 [debug] [ThreadPool]: SQL status: BEGIN in 0.12 seconds
+11:43:21.557921 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+11:43:21.562120 [debug] [ThreadPool]: On list_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme_testme_schema"} */
+select
+      'testme' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'testme_schema'
+    union all
+    select
+      'testme' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'testme_schema'
+  
+11:43:21.570925 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+11:43:21.582271 [debug] [ThreadPool]: On list_testme_testme_schema: ROLLBACK
+11:43:21.589844 [debug] [ThreadPool]: On list_testme_testme_schema: Close
+11:43:21.622426 [debug] [MainThread]: Using postgres connection "master"
+11:43:21.629380 [debug] [MainThread]: On master: BEGIN
+11:43:21.634845 [debug] [MainThread]: Opening a new connection, currently in state init
+11:43:21.725719 [debug] [MainThread]: SQL status: BEGIN in 0.09 seconds
+11:43:21.730876 [debug] [MainThread]: Using postgres connection "master"
+11:43:21.736338 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+11:43:21.756996 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+11:43:21.770827 [debug] [MainThread]: On master: ROLLBACK
+11:43:21.778051 [debug] [MainThread]: Using postgres connection "master"
+11:43:21.782490 [debug] [MainThread]: On master: BEGIN
+11:43:21.788049 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+11:43:21.793714 [debug] [MainThread]: On master: COMMIT
+11:43:21.798478 [debug] [MainThread]: Using postgres connection "master"
+11:43:21.802948 [debug] [MainThread]: On master: COMMIT
+11:43:21.808640 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+11:43:21.813003 [debug] [MainThread]: On master: Close
+11:43:21.817848 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+11:43:21.824669 [info ] [MainThread]: 
+11:43:21.945178 [debug] [Thread-1  ]: Began running node model.Marketing.orders_and_customers
+11:43:21.950396 [info ] [Thread-1  ]: 1 of 2 START table model testme_schema.orders_and_customers..................... [RUN]
+11:43:21.955437 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.orders_and_customers"
+11:43:21.959410 [debug] [Thread-1  ]: Began compiling node model.Marketing.orders_and_customers
+11:43:21.963004 [debug] [Thread-1  ]: Compiling model.Marketing.orders_and_customers
+11:43:21.985827 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.orders_and_customers"
+11:43:21.999541 [debug] [Thread-1  ]: finished collecting timing info
+11:43:22.003562 [debug] [Thread-1  ]: Began executing node model.Marketing.orders_and_customers
+11:43:23.816990 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.orders_and_customers"
+11:43:23.828758 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:43:23.832697 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: BEGIN
+11:43:23.836524 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+11:43:23.921056 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+11:43:23.925605 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:43:23.929317 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+
+
+  create  table "testme"."testme_schema"."orders_and_customers__dbt_tmp"
+  as (
+    
+
+select *
+from "testme"."public"."orders"
+left join "testme"."public"."customers"
+on customers.id = orders.customer_id
+  );
+11:43:23.938452 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.0 seconds
+11:43:24.957162 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:43:24.962196 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers__dbt_tmp" rename to "orders_and_customers"
+11:43:24.968732 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:43:25.061194 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+11:43:25.067577 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:43:25.074235 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+11:43:25.081319 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+11:43:25.118836 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:43:25.123645 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+drop table if exists "testme"."testme_schema"."orders_and_customers__dbt_backup" cascade
+11:43:25.130662 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+11:43:25.149114 [debug] [Thread-1  ]: finished collecting timing info
+11:43:25.154352 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: Close
+11:43:25.161571 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '93132d5c-58d1-4a22-b4fe-533c7fa3fd8d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4059581d00>]}
+11:43:25.168393 [info ] [Thread-1  ]: 1 of 2 OK created table model testme_schema.orders_and_customers................ [[32mSELECT 396[0m in 3.21s]
+11:43:25.175456 [debug] [Thread-1  ]: Finished running node model.Marketing.orders_and_customers
+11:43:25.182958 [debug] [Thread-1  ]: Began running node model.Marketing.contact_list
+11:43:25.187590 [info ] [Thread-1  ]: 2 of 2 START table model testme_schema.contact_list............................. [RUN]
+11:43:25.192730 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.contact_list"
+11:43:25.196694 [debug] [Thread-1  ]: Began compiling node model.Marketing.contact_list
+11:43:25.200942 [debug] [Thread-1  ]: Compiling model.Marketing.contact_list
+11:43:25.219823 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.contact_list"
+11:43:25.228599 [debug] [Thread-1  ]: finished collecting timing info
+11:43:25.232691 [debug] [Thread-1  ]: Began executing node model.Marketing.contact_list
+11:43:27.301763 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.contact_list"
+11:43:27.311290 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:43:27.315201 [debug] [Thread-1  ]: On model.Marketing.contact_list: BEGIN
+11:43:27.318559 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+11:43:27.400963 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+11:43:27.405418 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:43:27.409121 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+
+
+  create  table "testme"."testme_schema"."contact_list__dbt_tmp"
+  as (
+    
+
+
+select first_name, phone
+from "testme"."testme_schema"."orders_and_customers"
+  );
+11:43:27.418090 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.0 seconds
+11:43:27.818056 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:43:27.822165 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list__dbt_tmp" rename to "contact_list"
+11:43:27.829231 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:43:27.842203 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+11:43:27.846181 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:43:27.849750 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+11:43:27.855257 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+11:43:27.867383 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:43:27.871287 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
+11:43:27.876796 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+11:43:28.640672 [debug] [Thread-1  ]: finished collecting timing info
+11:43:28.645413 [debug] [Thread-1  ]: On model.Marketing.contact_list: Close
+11:43:28.650669 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '93132d5c-58d1-4a22-b4fe-533c7fa3fd8d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4059623670>]}
+11:43:28.656946 [info ] [Thread-1  ]: 2 of 2 OK created table model testme_schema.contact_list........................ [[32mSELECT 396[0m in 3.46s]
+11:43:28.662682 [debug] [Thread-1  ]: Finished running node model.Marketing.contact_list
+11:43:28.669468 [debug] [MainThread]: Acquiring new postgres connection "master"
+11:43:28.674275 [debug] [MainThread]: Using postgres connection "master"
+11:43:28.678243 [debug] [MainThread]: On master: BEGIN
+11:43:28.682179 [debug] [MainThread]: Opening a new connection, currently in state closed
+11:43:28.768203 [debug] [MainThread]: SQL status: BEGIN in 0.09 seconds
+11:43:28.772725 [debug] [MainThread]: On master: COMMIT
+11:43:28.776613 [debug] [MainThread]: Using postgres connection "master"
+11:43:28.780131 [debug] [MainThread]: On master: COMMIT
+11:43:28.784645 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+11:43:28.788695 [debug] [MainThread]: On master: Close
+11:43:28.793512 [info ] [MainThread]: 
+11:43:28.797804 [info ] [MainThread]: Finished running 2 table models in 13.04s.
+11:43:28.801607 [debug] [MainThread]: Connection 'master' was properly closed.
+11:43:28.805238 [debug] [MainThread]: Connection 'create_testme_testme_schema' was properly closed.
+11:43:28.808681 [debug] [MainThread]: Connection 'model.Marketing.contact_list' was properly closed.
+11:43:28.843815 [info ] [MainThread]: 
+11:43:28.847924 [info ] [MainThread]: [32mCompleted successfully[0m
+11:43:28.853639 [info ] [MainThread]: 
+11:43:28.857375 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+11:43:28.861812 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x403da0bc10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x400764ef40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x403e788be0>]}
+
+
+============================== 2022-05-24 11:44:06.580052 | 260be6e6-022f-4ddc-9721-4da0d86bc778 ==============================
+11:44:06.580538 [info ] [MainThread]: Running with dbt=1.0.1
+11:44:06.588168 [debug] [MainThread]: running dbt with arguments {'debug': True, 'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'project_dir': '/kensu-dbt-example/dbt-projects/example_marketing', 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+11:44:06.594102 [debug] [MainThread]: Tracking: tracking
+11:44:06.622082 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076a8f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b60a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b6040>]}
+11:44:06.862742 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+11:44:06.866665 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+11:44:06.912402 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '260be6e6-022f-4ddc-9721-4da0d86bc778', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077a4fa0>]}
+11:44:06.958389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '260be6e6-022f-4ddc-9721-4da0d86bc778', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4007708c70>]}
+11:44:06.962615 [info ] [MainThread]: Found 2 models, 1 test, 0 snapshots, 0 analyses, 165 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+11:44:06.971305 [info ] [MainThread]: 
+11:44:06.975094 [debug] [MainThread]: Acquiring new postgres connection "master"
+11:44:06.984386 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme"
+11:44:07.056991 [debug] [ThreadPool]: Using postgres connection "list_testme"
+11:44:07.060980 [debug] [ThreadPool]: On list_testme: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme"} */
+
+    select distinct nspname from pg_namespace
+  
+11:44:07.064292 [debug] [ThreadPool]: Opening a new connection, currently in state init
+11:44:07.173324 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.11 seconds
+11:44:08.702657 [debug] [ThreadPool]: On list_testme: Close
+11:44:08.712798 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme_testme_schema"
+11:44:08.757117 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+11:44:08.761339 [debug] [ThreadPool]: On list_testme_testme_schema: BEGIN
+11:44:08.764741 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+11:44:08.848750 [debug] [ThreadPool]: SQL status: BEGIN in 0.08 seconds
+11:44:08.852331 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+11:44:08.855493 [debug] [ThreadPool]: On list_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme_testme_schema"} */
+select
+      'testme' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'testme_schema'
+    union all
+    select
+      'testme' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'testme_schema'
+  
+11:44:08.861771 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+11:44:08.872105 [debug] [ThreadPool]: On list_testme_testme_schema: ROLLBACK
+11:44:08.876163 [debug] [ThreadPool]: On list_testme_testme_schema: Close
+11:44:08.908168 [debug] [MainThread]: Using postgres connection "master"
+11:44:08.911604 [debug] [MainThread]: On master: BEGIN
+11:44:08.914789 [debug] [MainThread]: Opening a new connection, currently in state init
+11:44:08.999626 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+11:44:09.003575 [debug] [MainThread]: Using postgres connection "master"
+11:44:09.006494 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+11:44:09.016808 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+11:44:09.026675 [debug] [MainThread]: On master: ROLLBACK
+11:44:09.031115 [debug] [MainThread]: Using postgres connection "master"
+11:44:09.034062 [debug] [MainThread]: On master: BEGIN
+11:44:09.038888 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+11:44:09.041971 [debug] [MainThread]: On master: COMMIT
+11:44:09.044907 [debug] [MainThread]: Using postgres connection "master"
+11:44:09.047700 [debug] [MainThread]: On master: COMMIT
+11:44:09.051682 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+11:44:09.054792 [debug] [MainThread]: On master: Close
+11:44:09.058574 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+11:44:09.062054 [info ] [MainThread]: 
+11:44:09.079292 [debug] [Thread-1  ]: Began running node model.Marketing.orders_and_customers
+11:44:09.083488 [info ] [Thread-1  ]: 1 of 2 START table model testme_schema.orders_and_customers..................... [RUN]
+11:44:09.088404 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.orders_and_customers"
+11:44:09.092144 [debug] [Thread-1  ]: Began compiling node model.Marketing.orders_and_customers
+11:44:09.095357 [debug] [Thread-1  ]: Compiling model.Marketing.orders_and_customers
+11:44:09.116527 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.orders_and_customers"
+11:44:09.124652 [debug] [Thread-1  ]: finished collecting timing info
+11:44:09.128090 [debug] [Thread-1  ]: Began executing node model.Marketing.orders_and_customers
+11:44:10.874142 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.orders_and_customers"
+11:44:10.884090 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:10.888496 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: BEGIN
+11:44:10.892366 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+11:44:10.975755 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+11:44:10.980471 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:10.984422 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+
+
+  create  table "testme"."testme_schema"."orders_and_customers__dbt_tmp"
+  as (
+    
+
+select *
+from "testme"."public"."orders"
+left join "testme"."public"."customers"
+on customers.id = orders.customer_id
+  );
+11:44:10.994531 [debug] [Thread-1  ]: SQL status: SELECT 386 in 0.0 seconds
+11:44:11.906318 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:11.911135 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers" rename to "orders_and_customers__dbt_backup"
+11:44:11.919137 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:44:11.938146 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:11.942706 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers__dbt_tmp" rename to "orders_and_customers"
+11:44:11.949149 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:44:12.033100 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+11:44:12.038123 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:12.042343 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+11:44:12.048809 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+11:44:12.086403 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+11:44:12.091930 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+drop table if exists "testme"."testme_schema"."orders_and_customers__dbt_backup" cascade
+11:44:12.099445 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+11:44:12.116145 [debug] [Thread-1  ]: finished collecting timing info
+11:44:12.120695 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: Close
+11:44:12.126266 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '260be6e6-022f-4ddc-9721-4da0d86bc778', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038405bb0>]}
+11:44:12.133818 [info ] [Thread-1  ]: 1 of 2 OK created table model testme_schema.orders_and_customers................ [[32mSELECT 386[0m in 3.04s]
+11:44:12.140562 [debug] [Thread-1  ]: Finished running node model.Marketing.orders_and_customers
+11:44:12.147732 [debug] [Thread-1  ]: Began running node model.Marketing.contact_list
+11:44:12.152555 [info ] [Thread-1  ]: 2 of 2 START table model testme_schema.contact_list............................. [RUN]
+11:44:12.157585 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.contact_list"
+11:44:12.161548 [debug] [Thread-1  ]: Began compiling node model.Marketing.contact_list
+11:44:12.165470 [debug] [Thread-1  ]: Compiling model.Marketing.contact_list
+11:44:12.184953 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.contact_list"
+11:44:12.192754 [debug] [Thread-1  ]: finished collecting timing info
+11:44:12.196719 [debug] [Thread-1  ]: Began executing node model.Marketing.contact_list
+11:44:12.728643 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.contact_list"
+11:44:12.737271 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:12.741596 [debug] [Thread-1  ]: On model.Marketing.contact_list: BEGIN
+11:44:12.745257 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+11:44:12.829795 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+11:44:12.834643 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:12.839039 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+
+
+  create  table "testme"."testme_schema"."contact_list__dbt_tmp"
+  as (
+    
+
+
+select first_name, phone
+from "testme"."testme_schema"."orders_and_customers"
+  );
+11:44:12.848810 [debug] [Thread-1  ]: SQL status: SELECT 386 in 0.0 seconds
+11:44:13.253335 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:13.258782 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list" rename to "contact_list__dbt_backup"
+11:44:13.266927 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:44:13.286312 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:13.291158 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list__dbt_tmp" rename to "contact_list"
+11:44:13.297432 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+11:44:13.311929 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+11:44:13.316877 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:13.320932 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+11:44:13.330327 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+11:44:13.344317 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+11:44:13.349421 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
+11:44:13.357677 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+11:44:14.058315 [debug] [Thread-1  ]: finished collecting timing info
+11:44:14.064179 [debug] [Thread-1  ]: On model.Marketing.contact_list: Close
+11:44:14.069404 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '260be6e6-022f-4ddc-9721-4da0d86bc778', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038419850>]}
+11:44:14.075568 [info ] [Thread-1  ]: 2 of 2 OK created table model testme_schema.contact_list........................ [[32mSELECT 386[0m in 1.91s]
+11:44:14.082042 [debug] [Thread-1  ]: Finished running node model.Marketing.contact_list
+11:44:14.089397 [debug] [MainThread]: Acquiring new postgres connection "master"
+11:44:14.093546 [debug] [MainThread]: Using postgres connection "master"
+11:44:14.097493 [debug] [MainThread]: On master: BEGIN
+11:44:14.101308 [debug] [MainThread]: Opening a new connection, currently in state closed
+11:44:14.185563 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+11:44:14.190082 [debug] [MainThread]: On master: COMMIT
+11:44:14.193907 [debug] [MainThread]: Using postgres connection "master"
+11:44:14.197635 [debug] [MainThread]: On master: COMMIT
+11:44:14.202151 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+11:44:14.206484 [debug] [MainThread]: On master: Close
+11:44:14.212611 [info ] [MainThread]: 
+11:44:14.216521 [info ] [MainThread]: Finished running 2 table models in 7.24s.
+11:44:14.220226 [debug] [MainThread]: Connection 'master' was properly closed.
+11:44:14.223674 [debug] [MainThread]: Connection 'model.Marketing.contact_list' was properly closed.
+11:44:14.257084 [info ] [MainThread]: 
+11:44:14.260659 [info ] [MainThread]: [32mCompleted successfully[0m
+11:44:14.265589 [info ] [MainThread]: 
+11:44:14.269232 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+11:44:14.273613 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038af4d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038419ac0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cee2df0>]}
+
+
+============================== 2022-05-24 12:02:25.912974 | 71c5588e-12f5-431b-b650-d7243ccc2d9a ==============================
+12:02:25.913476 [info ] [MainThread]: Running with dbt=1.0.1
+12:02:25.920243 [debug] [MainThread]: running dbt with arguments {'debug': True, 'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'project_dir': '/kensu-dbt-example/dbt-projects/example_marketing', 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+12:02:25.923696 [debug] [MainThread]: Tracking: tracking
+12:02:25.949789 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b60a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b6190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b6130>]}
+12:02:26.176737 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+12:02:26.181476 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+12:02:26.228250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '71c5588e-12f5-431b-b650-d7243ccc2d9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077a40d0>]}
+12:02:26.274269 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '71c5588e-12f5-431b-b650-d7243ccc2d9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4007708cd0>]}
+12:02:26.279055 [info ] [MainThread]: Found 2 models, 1 test, 0 snapshots, 0 analyses, 165 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+12:02:26.289633 [info ] [MainThread]: 
+12:02:26.295293 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:02:26.306619 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme"
+12:02:26.374118 [debug] [ThreadPool]: Using postgres connection "list_testme"
+12:02:26.378231 [debug] [ThreadPool]: On list_testme: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme"} */
+
+    select distinct nspname from pg_namespace
+  
+12:02:26.381344 [debug] [ThreadPool]: Opening a new connection, currently in state init
+12:02:26.485401 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.1 seconds
+12:02:27.874038 [debug] [ThreadPool]: On list_testme: Close
+12:02:27.885204 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme_testme_schema"
+12:02:27.927418 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:02:27.931350 [debug] [ThreadPool]: On list_testme_testme_schema: BEGIN
+12:02:27.935082 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+12:02:28.032600 [debug] [ThreadPool]: SQL status: BEGIN in 0.1 seconds
+12:02:28.036526 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:02:28.039999 [debug] [ThreadPool]: On list_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme_testme_schema"} */
+select
+      'testme' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'testme_schema'
+    union all
+    select
+      'testme' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'testme_schema'
+  
+12:02:28.046674 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+12:02:28.057928 [debug] [ThreadPool]: On list_testme_testme_schema: ROLLBACK
+12:02:28.063026 [debug] [ThreadPool]: On list_testme_testme_schema: Close
+12:02:28.092397 [debug] [MainThread]: Using postgres connection "master"
+12:02:28.095870 [debug] [MainThread]: On master: BEGIN
+12:02:28.099069 [debug] [MainThread]: Opening a new connection, currently in state init
+12:02:28.176122 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:02:28.180520 [debug] [MainThread]: Using postgres connection "master"
+12:02:28.183903 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+12:02:28.193982 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+12:02:28.202991 [debug] [MainThread]: On master: ROLLBACK
+12:02:28.206843 [debug] [MainThread]: Using postgres connection "master"
+12:02:28.209602 [debug] [MainThread]: On master: BEGIN
+12:02:28.214674 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+12:02:28.218177 [debug] [MainThread]: On master: COMMIT
+12:02:28.221351 [debug] [MainThread]: Using postgres connection "master"
+12:02:28.225936 [debug] [MainThread]: On master: COMMIT
+12:02:28.230371 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:02:28.233667 [debug] [MainThread]: On master: Close
+12:02:28.237692 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+12:02:28.241124 [info ] [MainThread]: 
+12:02:28.259227 [debug] [Thread-1  ]: Began running node model.Marketing.orders_and_customers
+12:02:28.263568 [info ] [Thread-1  ]: 1 of 2 START table model testme_schema.orders_and_customers..................... [RUN]
+12:02:28.268130 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.orders_and_customers"
+12:02:28.271364 [debug] [Thread-1  ]: Began compiling node model.Marketing.orders_and_customers
+12:02:28.275197 [debug] [Thread-1  ]: Compiling model.Marketing.orders_and_customers
+12:02:28.295902 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.orders_and_customers"
+12:02:28.304542 [debug] [Thread-1  ]: finished collecting timing info
+12:02:28.307652 [debug] [Thread-1  ]: Began executing node model.Marketing.orders_and_customers
+12:02:30.020424 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.orders_and_customers"
+12:02:30.031004 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:30.035124 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: BEGIN
+12:02:30.038727 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:02:30.119431 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+12:02:30.124539 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:30.128941 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+
+
+  create  table "testme"."testme_schema"."orders_and_customers__dbt_tmp"
+  as (
+    
+
+select *
+from "testme"."public"."orders"
+left join "testme"."public"."customers"
+on customers.id = orders.customer_id
+  );
+12:02:30.138876 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.0 seconds
+12:02:31.053273 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:31.058071 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers" rename to "orders_and_customers__dbt_backup"
+12:02:31.064356 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:02:31.082533 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:31.086674 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers__dbt_tmp" rename to "orders_and_customers"
+12:02:31.092963 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:02:31.167178 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:02:31.171753 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:31.177028 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:02:31.184503 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:02:31.218458 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:02:31.222709 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+drop table if exists "testme"."testme_schema"."orders_and_customers__dbt_backup" cascade
+12:02:31.229953 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:02:31.246014 [debug] [Thread-1  ]: finished collecting timing info
+12:02:31.250200 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: Close
+12:02:31.257413 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71c5588e-12f5-431b-b650-d7243ccc2d9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038acafa0>]}
+12:02:31.264744 [info ] [Thread-1  ]: 1 of 2 OK created table model testme_schema.orders_and_customers................ [[32mSELECT 396[0m in 2.99s]
+12:02:31.272071 [debug] [Thread-1  ]: Finished running node model.Marketing.orders_and_customers
+12:02:31.281674 [debug] [Thread-1  ]: Began running node model.Marketing.contact_list
+12:02:31.288377 [info ] [Thread-1  ]: 2 of 2 START table model testme_schema.contact_list............................. [RUN]
+12:02:31.296740 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.contact_list"
+12:02:31.302489 [debug] [Thread-1  ]: Began compiling node model.Marketing.contact_list
+12:02:31.307085 [debug] [Thread-1  ]: Compiling model.Marketing.contact_list
+12:02:31.329233 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.contact_list"
+12:02:31.402386 [debug] [Thread-1  ]: finished collecting timing info
+12:02:31.419095 [debug] [Thread-1  ]: Began executing node model.Marketing.contact_list
+12:02:32.047399 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.contact_list"
+12:02:32.066136 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.072264 [debug] [Thread-1  ]: On model.Marketing.contact_list: BEGIN
+12:02:32.077057 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:02:32.158042 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+12:02:32.162958 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.167304 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+
+
+  create  table "testme"."testme_schema"."contact_list__dbt_tmp"
+  as (
+    
+
+
+select first_name, phone
+from "testme"."testme_schema"."orders_and_customers"
+  );
+12:02:32.177560 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.0 seconds
+12:02:32.591589 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.596441 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list" rename to "contact_list__dbt_backup"
+12:02:32.602866 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:02:32.619667 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.624565 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list__dbt_tmp" rename to "contact_list"
+12:02:32.631494 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:02:32.644708 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:02:32.648910 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.652611 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:02:32.659092 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:02:32.670685 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:02:32.676161 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
+12:02:32.683528 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:02:33.441676 [debug] [Thread-1  ]: finished collecting timing info
+12:02:33.449515 [debug] [Thread-1  ]: On model.Marketing.contact_list: Close
+12:02:33.457844 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71c5588e-12f5-431b-b650-d7243ccc2d9a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038419c70>]}
+12:02:33.465743 [info ] [Thread-1  ]: 2 of 2 OK created table model testme_schema.contact_list........................ [[32mSELECT 396[0m in 2.16s]
+12:02:33.473076 [debug] [Thread-1  ]: Finished running node model.Marketing.contact_list
+12:02:33.481370 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:02:33.485862 [debug] [MainThread]: Using postgres connection "master"
+12:02:33.490337 [debug] [MainThread]: On master: BEGIN
+12:02:33.493974 [debug] [MainThread]: Opening a new connection, currently in state closed
+12:02:33.573453 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:02:33.579325 [debug] [MainThread]: On master: COMMIT
+12:02:33.584387 [debug] [MainThread]: Using postgres connection "master"
+12:02:33.588605 [debug] [MainThread]: On master: COMMIT
+12:02:33.594143 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:02:33.598666 [debug] [MainThread]: On master: Close
+12:02:33.604651 [info ] [MainThread]: 
+12:02:33.608980 [info ] [MainThread]: Finished running 2 table models in 7.31s.
+12:02:33.613222 [debug] [MainThread]: Connection 'master' was properly closed.
+12:02:33.616762 [debug] [MainThread]: Connection 'model.Marketing.contact_list' was properly closed.
+12:02:33.649427 [info ] [MainThread]: 
+12:02:33.653210 [info ] [MainThread]: [32mCompleted successfully[0m
+12:02:33.657932 [info ] [MainThread]: 
+12:02:33.661684 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+12:02:33.665751 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cec67f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cec69a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cee2f70>]}
+
+
+============================== 2022-05-24 12:08:59.106485 | a4f5984e-d3ed-4693-baaa-7bb6bc038954 ==============================
+12:08:59.107091 [info ] [MainThread]: Running with dbt=1.0.1
+12:08:59.113518 [debug] [MainThread]: running dbt with arguments {'debug': True, 'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'project_dir': '/kensu-dbt-example/dbt-projects/example_marketing', 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+12:08:59.117243 [debug] [MainThread]: Tracking: tracking
+12:08:59.146506 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076bc5e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076bc6d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076bc670>]}
+12:08:59.392927 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+12:08:59.397136 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+12:08:59.446022 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a4f5984e-d3ed-4693-baaa-7bb6bc038954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077a90d0>]}
+12:08:59.490380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a4f5984e-d3ed-4693-baaa-7bb6bc038954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4007733e20>]}
+12:08:59.494684 [info ] [MainThread]: Found 2 models, 1 test, 0 snapshots, 0 analyses, 165 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+12:08:59.503241 [info ] [MainThread]: 
+12:08:59.507512 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:08:59.517157 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme"
+12:08:59.586504 [debug] [ThreadPool]: Using postgres connection "list_testme"
+12:08:59.590488 [debug] [ThreadPool]: On list_testme: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme"} */
+
+    select distinct nspname from pg_namespace
+  
+12:08:59.593922 [debug] [ThreadPool]: Opening a new connection, currently in state init
+12:08:59.707640 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.11 seconds
+12:09:01.261525 [debug] [ThreadPool]: On list_testme: Close
+12:09:01.271895 [debug] [ThreadPool]: Acquiring new postgres connection "create_testme_testme_schema"
+12:09:01.276273 [debug] [ThreadPool]: Acquiring new postgres connection "create_testme_testme_schema"
+12:09:01.280019 [debug] [ThreadPool]: Creating schema "_ReferenceKey(database='testme', schema='testme_schema', identifier=None)"
+12:09:01.318780 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+12:09:01.323026 [debug] [ThreadPool]: On create_testme_testme_schema: BEGIN
+12:09:01.326648 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+12:09:01.412153 [debug] [ThreadPool]: SQL status: BEGIN in 0.09 seconds
+12:09:01.416239 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+12:09:01.419496 [debug] [ThreadPool]: On create_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "create_testme_testme_schema"} */
+create schema if not exists "testme_schema"
+12:09:01.424174 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.0 seconds
+12:09:01.661219 [debug] [ThreadPool]: On create_testme_testme_schema: COMMIT
+12:09:01.665724 [debug] [ThreadPool]: Using postgres connection "create_testme_testme_schema"
+12:09:01.669297 [debug] [ThreadPool]: On create_testme_testme_schema: COMMIT
+12:09:01.674590 [debug] [ThreadPool]: SQL status: COMMIT in 0.0 seconds
+12:09:01.678071 [debug] [ThreadPool]: On create_testme_testme_schema: Close
+12:09:01.688155 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme_testme_schema"
+12:09:01.730156 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:09:01.734370 [debug] [ThreadPool]: On list_testme_testme_schema: BEGIN
+12:09:01.738872 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+12:09:01.821577 [debug] [ThreadPool]: SQL status: BEGIN in 0.08 seconds
+12:09:01.826049 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:09:01.829646 [debug] [ThreadPool]: On list_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme_testme_schema"} */
+select
+      'testme' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'testme_schema'
+    union all
+    select
+      'testme' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'testme_schema'
+  
+12:09:01.838044 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.0 seconds
+12:09:01.847911 [debug] [ThreadPool]: On list_testme_testme_schema: ROLLBACK
+12:09:01.853007 [debug] [ThreadPool]: On list_testme_testme_schema: Close
+12:09:01.881237 [debug] [MainThread]: Using postgres connection "master"
+12:09:01.885559 [debug] [MainThread]: On master: BEGIN
+12:09:01.889568 [debug] [MainThread]: Opening a new connection, currently in state init
+12:09:01.971814 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:09:01.976035 [debug] [MainThread]: Using postgres connection "master"
+12:09:01.979778 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+12:09:01.996604 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+12:09:02.007720 [debug] [MainThread]: On master: ROLLBACK
+12:09:02.013818 [debug] [MainThread]: Using postgres connection "master"
+12:09:02.017829 [debug] [MainThread]: On master: BEGIN
+12:09:02.023611 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+12:09:02.027348 [debug] [MainThread]: On master: COMMIT
+12:09:02.030880 [debug] [MainThread]: Using postgres connection "master"
+12:09:02.034570 [debug] [MainThread]: On master: COMMIT
+12:09:02.038969 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:09:02.042385 [debug] [MainThread]: On master: Close
+12:09:02.048235 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+12:09:02.053391 [info ] [MainThread]: 
+12:09:02.161676 [debug] [Thread-1  ]: Began running node model.Marketing.orders_and_customers
+12:09:02.167507 [info ] [Thread-1  ]: 1 of 2 START table model testme_schema.orders_and_customers..................... [RUN]
+12:09:02.172584 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.orders_and_customers"
+12:09:02.176595 [debug] [Thread-1  ]: Began compiling node model.Marketing.orders_and_customers
+12:09:02.180616 [debug] [Thread-1  ]: Compiling model.Marketing.orders_and_customers
+12:09:02.202367 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.orders_and_customers"
+12:09:02.213231 [debug] [Thread-1  ]: finished collecting timing info
+12:09:02.217236 [debug] [Thread-1  ]: Began executing node model.Marketing.orders_and_customers
+12:09:03.909285 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.orders_and_customers"
+12:09:03.919982 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:09:03.924227 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: BEGIN
+12:09:03.928367 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:09:04.013761 [debug] [Thread-1  ]: SQL status: BEGIN in 0.09 seconds
+12:09:04.018559 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:09:04.022252 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+
+
+  create  table "testme"."testme_schema"."orders_and_customers__dbt_tmp"
+  as (
+    
+
+select *
+from "testme"."public"."orders"
+left join "testme"."public"."customers"
+on customers.id = orders.customer_id
+  );
+12:09:04.032812 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.01 seconds
+12:09:04.598956 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:09:04.603843 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers__dbt_tmp" rename to "orders_and_customers"
+12:09:04.609824 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:09:04.691862 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:09:04.697218 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:09:04.702079 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:09:04.708341 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:09:04.744335 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:09:04.750695 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+drop table if exists "testme"."testme_schema"."orders_and_customers__dbt_backup" cascade
+12:09:04.757761 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:09:04.775189 [debug] [Thread-1  ]: finished collecting timing info
+12:09:04.780668 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: Close
+12:09:04.786582 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a4f5984e-d3ed-4693-baaa-7bb6bc038954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401d6af8b0>]}
+12:09:04.793207 [info ] [Thread-1  ]: 1 of 2 OK created table model testme_schema.orders_and_customers................ [[32mSELECT 396[0m in 2.61s]
+12:09:04.800234 [debug] [Thread-1  ]: Finished running node model.Marketing.orders_and_customers
+12:09:04.808024 [debug] [Thread-1  ]: Began running node model.Marketing.contact_list
+12:09:04.813015 [info ] [Thread-1  ]: 2 of 2 START table model testme_schema.contact_list............................. [RUN]
+12:09:04.818643 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.contact_list"
+12:09:04.822674 [debug] [Thread-1  ]: Began compiling node model.Marketing.contact_list
+12:09:04.826922 [debug] [Thread-1  ]: Compiling model.Marketing.contact_list
+12:09:04.845484 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.contact_list"
+12:09:04.854794 [debug] [Thread-1  ]: finished collecting timing info
+12:09:04.859012 [debug] [Thread-1  ]: Began executing node model.Marketing.contact_list
+12:09:05.426288 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.contact_list"
+12:09:05.444304 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:09:05.449038 [debug] [Thread-1  ]: On model.Marketing.contact_list: BEGIN
+12:09:05.453025 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:09:05.534353 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+12:09:05.538579 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:09:05.542886 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+
+
+  create  table "testme"."testme_schema"."contact_list__dbt_tmp"
+  as (
+    
+
+
+select first_name, phone
+from "testme"."testme_schema"."orders_and_customers"
+  );
+12:09:05.552459 [debug] [Thread-1  ]: SQL status: SELECT 396 in 0.0 seconds
+12:09:05.892818 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:09:05.898500 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list__dbt_tmp" rename to "contact_list"
+12:09:05.906557 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:09:05.919365 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:09:05.923356 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:09:05.927024 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:09:05.932638 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:09:05.944208 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:09:05.948506 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
+12:09:05.954835 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:09:06.643476 [debug] [Thread-1  ]: finished collecting timing info
+12:09:06.648575 [debug] [Thread-1  ]: On model.Marketing.contact_list: Close
+12:09:06.653965 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a4f5984e-d3ed-4693-baaa-7bb6bc038954', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038bb3580>]}
+12:09:06.660020 [info ] [Thread-1  ]: 2 of 2 OK created table model testme_schema.contact_list........................ [[32mSELECT 396[0m in 1.84s]
+12:09:06.667166 [debug] [Thread-1  ]: Finished running node model.Marketing.contact_list
+12:09:06.675294 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:09:06.679718 [debug] [MainThread]: Using postgres connection "master"
+12:09:06.683110 [debug] [MainThread]: On master: BEGIN
+12:09:06.687030 [debug] [MainThread]: Opening a new connection, currently in state closed
+12:09:06.767619 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:09:06.772032 [debug] [MainThread]: On master: COMMIT
+12:09:06.775580 [debug] [MainThread]: Using postgres connection "master"
+12:09:06.778913 [debug] [MainThread]: On master: COMMIT
+12:09:06.783553 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:09:06.787234 [debug] [MainThread]: On master: Close
+12:09:06.792134 [info ] [MainThread]: 
+12:09:06.795954 [info ] [MainThread]: Finished running 2 table models in 7.29s.
+12:09:06.799728 [debug] [MainThread]: Connection 'master' was properly closed.
+12:09:06.803115 [debug] [MainThread]: Connection 'model.Marketing.contact_list' was properly closed.
+12:09:06.835059 [info ] [MainThread]: 
+12:09:06.838615 [info ] [MainThread]: [32mCompleted successfully[0m
+12:09:06.843114 [info ] [MainThread]: 
+12:09:06.846379 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+12:09:06.850101 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401d6af8b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038bc5580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401d01fee0>]}
+
+
+============================== 2022-05-24 12:39:29.062324 | f20d2f10-1de4-4780-accf-edd5ea329060 ==============================
+12:39:29.062882 [info ] [MainThread]: Running with dbt=1.0.1
+12:39:29.070581 [debug] [MainThread]: running dbt with arguments {'debug': True, 'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'project_dir': '/kensu-dbt-example/dbt-projects/example_marketing', 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+12:39:29.075542 [debug] [MainThread]: Tracking: tracking
+12:39:29.108403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b11f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b12e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40076b1280>]}
+12:39:29.357402 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+12:39:29.361358 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+12:39:29.408484 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f20d2f10-1de4-4780-accf-edd5ea329060', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x40077a30d0>]}
+12:39:29.456072 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f20d2f10-1de4-4780-accf-edd5ea329060', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4007702e20>]}
+12:39:29.460836 [info ] [MainThread]: Found 2 models, 1 test, 0 snapshots, 0 analyses, 165 macros, 0 operations, 0 seed files, 2 sources, 0 exposures, 0 metrics
+12:39:29.469617 [info ] [MainThread]: 
+12:39:29.474506 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:39:29.484309 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme"
+12:39:29.557265 [debug] [ThreadPool]: Using postgres connection "list_testme"
+12:39:29.560723 [debug] [ThreadPool]: On list_testme: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme"} */
+
+    select distinct nspname from pg_namespace
+  
+12:39:29.564506 [debug] [ThreadPool]: Opening a new connection, currently in state init
+12:39:29.680451 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.12 seconds
+12:39:31.290021 [debug] [ThreadPool]: On list_testme: Close
+12:39:31.300334 [debug] [ThreadPool]: Acquiring new postgres connection "list_testme_testme_schema"
+12:39:31.343635 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:39:31.347205 [debug] [ThreadPool]: On list_testme_testme_schema: BEGIN
+12:39:31.350273 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+12:39:31.439192 [debug] [ThreadPool]: SQL status: BEGIN in 0.09 seconds
+12:39:31.443334 [debug] [ThreadPool]: Using postgres connection "list_testme_testme_schema"
+12:39:31.446450 [debug] [ThreadPool]: On list_testme_testme_schema: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "list_testme_testme_schema"} */
+select
+      'testme' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'testme_schema'
+    union all
+    select
+      'testme' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'testme_schema'
+  
+12:39:31.452893 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.0 seconds
+12:39:31.463452 [debug] [ThreadPool]: On list_testme_testme_schema: ROLLBACK
+12:39:31.467725 [debug] [ThreadPool]: On list_testme_testme_schema: Close
+12:39:31.499922 [debug] [MainThread]: Using postgres connection "master"
+12:39:31.503528 [debug] [MainThread]: On master: BEGIN
+12:39:31.506622 [debug] [MainThread]: Opening a new connection, currently in state init
+12:39:31.589715 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:39:31.593959 [debug] [MainThread]: Using postgres connection "master"
+12:39:31.596946 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+12:39:31.607979 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+12:39:31.617849 [debug] [MainThread]: On master: ROLLBACK
+12:39:31.621854 [debug] [MainThread]: Using postgres connection "master"
+12:39:31.624953 [debug] [MainThread]: On master: BEGIN
+12:39:31.630058 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+12:39:31.633402 [debug] [MainThread]: On master: COMMIT
+12:39:31.636255 [debug] [MainThread]: Using postgres connection "master"
+12:39:31.654624 [debug] [MainThread]: On master: COMMIT
+12:39:31.658756 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:39:31.661932 [debug] [MainThread]: On master: Close
+12:39:31.665715 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+12:39:31.669137 [info ] [MainThread]: 
+12:39:31.686394 [debug] [Thread-1  ]: Began running node model.Marketing.orders_and_customers
+12:39:31.690463 [info ] [Thread-1  ]: 1 of 2 START table model testme_schema.orders_and_customers..................... [RUN]
+12:39:31.694827 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.orders_and_customers"
+12:39:31.697863 [debug] [Thread-1  ]: Began compiling node model.Marketing.orders_and_customers
+12:39:31.700565 [debug] [Thread-1  ]: Compiling model.Marketing.orders_and_customers
+12:39:31.721919 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.orders_and_customers"
+12:39:31.730850 [debug] [Thread-1  ]: finished collecting timing info
+12:39:31.733907 [debug] [Thread-1  ]: Began executing node model.Marketing.orders_and_customers
+12:39:33.511353 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.orders_and_customers"
+12:39:33.521986 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:33.525966 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: BEGIN
+12:39:33.529509 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:39:33.613608 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+12:39:33.618546 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:33.622846 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+
+
+  create  table "testme"."testme_schema"."orders_and_customers__dbt_tmp"
+  as (
+    
+
+select *
+from "testme"."public"."orders"
+left join "testme"."public"."customers"
+on customers.id = orders.customer_id
+  );
+12:39:33.633876 [debug] [Thread-1  ]: SQL status: SELECT 386 in 0.01 seconds
+12:39:34.535692 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:34.540977 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers" rename to "orders_and_customers__dbt_backup"
+12:39:34.547176 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:39:34.565594 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:34.569935 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+alter table "testme"."testme_schema"."orders_and_customers__dbt_tmp" rename to "orders_and_customers"
+12:39:34.576168 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:39:34.660335 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:39:34.664904 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:34.668949 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: COMMIT
+12:39:34.674566 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:39:34.712183 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.orders_and_customers"
+12:39:34.717028 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.orders_and_customers"} */
+drop table if exists "testme"."testme_schema"."orders_and_customers__dbt_backup" cascade
+12:39:34.724998 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:39:34.741113 [debug] [Thread-1  ]: finished collecting timing info
+12:39:34.745127 [debug] [Thread-1  ]: On model.Marketing.orders_and_customers: Close
+12:39:34.750324 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f20d2f10-1de4-4780-accf-edd5ea329060', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cec88b0>]}
+12:39:34.756288 [info ] [Thread-1  ]: 1 of 2 OK created table model testme_schema.orders_and_customers................ [[32mSELECT 386[0m in 3.06s]
+12:39:34.762636 [debug] [Thread-1  ]: Finished running node model.Marketing.orders_and_customers
+12:39:34.769335 [debug] [Thread-1  ]: Began running node model.Marketing.contact_list
+12:39:34.773923 [info ] [Thread-1  ]: 2 of 2 START table model testme_schema.contact_list............................. [RUN]
+12:39:34.778522 [debug] [Thread-1  ]: Acquiring new postgres connection "model.Marketing.contact_list"
+12:39:34.782476 [debug] [Thread-1  ]: Began compiling node model.Marketing.contact_list
+12:39:34.786377 [debug] [Thread-1  ]: Compiling model.Marketing.contact_list
+12:39:34.804665 [debug] [Thread-1  ]: Writing injected SQL for node "model.Marketing.contact_list"
+12:39:34.812592 [debug] [Thread-1  ]: finished collecting timing info
+12:39:34.816721 [debug] [Thread-1  ]: Began executing node model.Marketing.contact_list
+12:39:35.355000 [debug] [Thread-1  ]: Writing runtime SQL for node "model.Marketing.contact_list"
+12:39:35.363462 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.367289 [debug] [Thread-1  ]: On model.Marketing.contact_list: BEGIN
+12:39:35.370855 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+12:39:35.453959 [debug] [Thread-1  ]: SQL status: BEGIN in 0.08 seconds
+12:39:35.459036 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.462848 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+
+
+  create  table "testme"."testme_schema"."contact_list__dbt_tmp"
+  as (
+    
+
+
+select first_name, phone
+from "testme"."testme_schema"."orders_and_customers"
+  );
+12:39:35.471885 [debug] [Thread-1  ]: SQL status: SELECT 386 in 0.0 seconds
+12:39:35.863933 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.868623 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list" rename to "contact_list__dbt_backup"
+12:39:35.874949 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:39:35.893812 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.897940 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+alter table "testme"."testme_schema"."contact_list__dbt_tmp" rename to "contact_list"
+12:39:35.904170 [debug] [Thread-1  ]: SQL status: ALTER TABLE in 0.0 seconds
+12:39:35.918443 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:39:35.923388 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.928853 [debug] [Thread-1  ]: On model.Marketing.contact_list: COMMIT
+12:39:35.934509 [debug] [Thread-1  ]: SQL status: COMMIT in 0.0 seconds
+12:39:35.947080 [debug] [Thread-1  ]: Using postgres connection "model.Marketing.contact_list"
+12:39:35.952881 [debug] [Thread-1  ]: On model.Marketing.contact_list: /* {"app": "dbt", "dbt_version": "1.0.1", "profile_name": "profile_marketing", "target_name": "dev", "node_id": "model.Marketing.contact_list"} */
+drop table if exists "testme"."testme_schema"."contact_list__dbt_backup" cascade
+12:39:35.960447 [debug] [Thread-1  ]: SQL status: DROP TABLE in 0.0 seconds
+12:39:36.659964 [debug] [Thread-1  ]: finished collecting timing info
+12:39:36.666606 [debug] [Thread-1  ]: On model.Marketing.contact_list: Close
+12:39:36.671919 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f20d2f10-1de4-4780-accf-edd5ea329060', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038419dc0>]}
+12:39:36.677481 [info ] [Thread-1  ]: 2 of 2 OK created table model testme_schema.contact_list........................ [[32mSELECT 386[0m in 1.89s]
+12:39:36.683072 [debug] [Thread-1  ]: Finished running node model.Marketing.contact_list
+12:39:36.689868 [debug] [MainThread]: Acquiring new postgres connection "master"
+12:39:36.693820 [debug] [MainThread]: Using postgres connection "master"
+12:39:36.697562 [debug] [MainThread]: On master: BEGIN
+12:39:36.702633 [debug] [MainThread]: Opening a new connection, currently in state closed
+12:39:36.787221 [debug] [MainThread]: SQL status: BEGIN in 0.08 seconds
+12:39:36.792619 [debug] [MainThread]: On master: COMMIT
+12:39:36.796284 [debug] [MainThread]: Using postgres connection "master"
+12:39:36.799972 [debug] [MainThread]: On master: COMMIT
+12:39:36.806007 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+12:39:36.809977 [debug] [MainThread]: On master: Close
+12:39:36.814954 [info ] [MainThread]: 
+12:39:36.818898 [info ] [MainThread]: Finished running 2 table models in 7.34s.
+12:39:36.822726 [debug] [MainThread]: Connection 'master' was properly closed.
+12:39:36.826490 [debug] [MainThread]: Connection 'model.Marketing.contact_list' was properly closed.
+12:39:36.859305 [info ] [MainThread]: 
+12:39:36.863209 [info ] [MainThread]: [32mCompleted successfully[0m
+12:39:36.867852 [info ] [MainThread]: 
+12:39:36.871155 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+12:39:36.875060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x4038419dc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cec4af0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x401cee0ee0>]}
