@@ -17,7 +17,7 @@ services:
       - ./pandas-load-data:/pandas-load-data
       - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
     working_dir: /pandas-load-data/
-    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3","/pandas-load-data/load_first_campain.py"]
+    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3","/pandas-load-data/load_campain.py", "first"]
     depends_on:
       - mypostgres
 
@@ -29,7 +29,7 @@ services:
       - ./pandas-load-data:/pandas-load-data
       - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
     working_dir: /pandas-load-data/
-    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3", "/pandas-load-data/load_second_campain.py"]
+    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3", "/pandas-load-data/load_campain.py", "second"]
     depends_on:
       - mypostgres
 
