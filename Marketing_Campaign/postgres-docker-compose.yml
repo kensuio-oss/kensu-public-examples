@@ -10,7 +10,7 @@ services:
       - "5432:5432"
 
   kensu_load_data_with_pandas_v1:
-    image: kensuio/kensu-dbt-postgres:dev3
+    image: kensuio/kensu-dbt-postgres:dev4
     environment:
       CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
@@ -22,7 +22,7 @@ services:
       - mypostgres
 
   kensu_load_data_with_pandas_v2:
-    image: kensuio/kensu-dbt-postgres:dev3
+    image: kensuio/kensu-dbt-postgres:dev4
     environment:
       CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
@@ -33,8 +33,32 @@ services:
     depends_on:
       - mypostgres
 
+  kensu_model_train:
+    image: kensuio/kensu-dbt-postgres:dev4
+    environment:
+      CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
+    volumes:
+      - ./pandas-load-data:/pandas-load-data
+      - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
+    working_dir: /pandas-load-data/
+    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3","/pandas-load-data/model_train.py"]
+    depends_on:
+      - mypostgres
+
+  kensu_model_predict:
+    image: kensuio/kensu-dbt-postgres:dev4
+    environment:
+      CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
+    volumes:
+      - ./pandas-load-data:/pandas-load-data
+      - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
+    working_dir: /pandas-load-data/
+    entrypoint: ["/root/pandas-load-data-script/pandas-venv/bin/python3","/pandas-load-data/model_predict.py"]
+    depends_on:
+      - mypostgres
+
   kensu_run_dbt_postgres:
-    image: kensuio/kensu-dbt-postgres:dev3
+    image: kensuio/kensu-dbt-postgres:dev4
     environment:
       CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
       DBT_CURRENT_PROJECT_DIR: "/kensu-dbt-example/dbt-projects/example_marketing"

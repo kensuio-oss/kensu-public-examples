@@ -1,11 +1,12 @@
+import urllib3, datetime, sys
+urllib3.disable_warnings()
 
+from kensu.utils.kensu_provider import KensuProvider
+k = KensuProvider().initKensu(project_names=["Marketing"],process_name='Python :: Model Predict',input_stats=True)
 
 import kensu.pandas as pd
-from kensu.utils.kensu_provider import KensuProvider
-KensuProvider().initKensu()
 
-
-data = pd.read_csv("/Users/sammykensu/KensuTools/kensu-public-examples/Marketing_Campaign/pandas-load-data/second_campaign/orders.csv")
+data = pd.read_csv("second_campaign/orders.csv")
 df=data[['total_qty']]
 
 import kensu.pickle as pickle
