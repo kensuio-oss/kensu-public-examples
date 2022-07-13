@@ -17,4 +17,4 @@ pred = model.predict(df)
 
 data['model_pred']=pred
 
-data.to_csv('model_tr.csv',index=False)
+data.to_csv('second_campaign/model_results.csv',index=False)
