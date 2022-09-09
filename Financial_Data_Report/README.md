@@ -1,6 +1,6 @@
-# Kensu Sandbox Use case: Financial reporting
+# Kensu Community Use case: Financial reporting
 
-This repo contains the materials linked to the Kensu Sandbox use case.
+This repo contains the materials linked to the Kensu Community use case.
 
 
 ## Content of the Repository
