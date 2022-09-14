@@ -1,2 +1,6 @@
 Marketing_Campaign/example_marketing/logs/
 Marketing_Campaign/example_marketing/target/
+Financial_Data_Report/datasources/output/*.csv
+Financial_Data_Report/datasources/report/*.csv
+.conf.ini
+kensu_env
