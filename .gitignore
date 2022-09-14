@@ -4,3 +4,4 @@ Financial_Data_Report/datasources/output/*.csv
 Financial_Data_Report/datasources/report/*.csv
 .conf.ini
 kensu_env
+.java-version
