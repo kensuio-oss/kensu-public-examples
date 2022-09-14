@@ -86,7 +86,7 @@ jenv local 11.0
 
 ## Get the materials and tools
 
-# Lab's data pipeline
+### Lab's data pipeline
 
 The pipeline code is distributed in a Kensu OSS GitHub repository that you can clone using the following:
 
@@ -111,7 +111,7 @@ cd ..
 > - pyspark: to work with data leveraging distributed computing
 > - kensu: the open source data observability agent
 
-## Metabase (BI)
+### Metabase (BI)
 
 The Metabase BI tool is simply a jar that you can download in your VirtualLab folder, but to make it cleaner, we'll do it in a dedicated folder:
 
@@ -194,7 +194,7 @@ What can be done is creating a dashboard with
 - a `scatter` plot Date x Delta
 - a computed which is the std of Delta: as this is a business KPI that represents a notion of risk
 
-The stakeholder are happy 🤩.
+The stakeholders are happy 🤩.
 
 ### December
 
@@ -417,11 +417,16 @@ Nailed it!
 
 ## Data Observability with Rules
 
-> what about the business rules we knew about.. or simply we anticipated the error (like in tests)? 
-> => rule programmatically
+But during the project, either when planning the actions, or during the coding phase, there are some contraints and conditions that are elaborated.
+
+Such as the average of `Adj Close` cannot variate too much as the decision may be influenced. In that circumstance, both you and the stakeholders, are interested to know when it happens.
+
+TO cover that case, the folder `with_rules` is a version of the pipeline that not only generates observations but also **uses** them to:
+- create rules in Kensu to enable the check directly
+- Kensu can then analyze the observations and return the health status (let's say)
+- stop it-self as some rules are not passing
 
 ### January
-
 
 ```sh
 python3 with_rules/data_ingestion.py jan 2022 ; python3 with_rules/reporting_spark.py jan 2022
