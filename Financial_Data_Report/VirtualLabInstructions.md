@@ -34,7 +34,7 @@ Here is an overview of the pipeline:
 Where the two applications are connected because the `Reporting` spark application reads the data produced by the `Data Ingestion` pandas application. 
 
 The `Data Ingestion` reads stock files and merge them in a consolidated stock file:
-![](images/1%20-%20Pipeline%20Data%20Ingestion.png).
+![](images/1%20-%20Pipeline%20Data%20Ingestion.png)
 
 The `Reporting` produces the reports that include an additional business KPI:
 ![](images/2%20-%20Pipeline%20Reporting.png)
@@ -81,7 +81,7 @@ source kensu_env/bin/activate
 (If needed) Set the java variables to point to the java version you want to use (here 11.0) using `jenv`, this will create a `.java-version` file:
 
 ```sh
-jenv 11.0
+jenv local 11.0
 ```
 
 ## Get the materials and tools
@@ -92,6 +92,7 @@ The pipeline code is distributed in a Kensu OSS GitHub repository that you can c
 
 ```sh
 git clone git@github.com:kensuio-oss/kensu-public-examples.git
+cd kensu-public-examples
 git checkout VirtualLab
 ```
 
@@ -102,6 +103,7 @@ Then we'll install all dependencies declared in `requirements.txt`:
 ```sh
 cd Financial_Data_Report
 pip install -r requirements.txt
+cd ..
 cd ..
 ```
 > ⚠️ This can take some time to download the below libraries and dependencies:
@@ -138,6 +140,7 @@ Then you can start Metabase as follow on port `3000` (but you can change it):
 
 ```sh
 MB_JETTY_PORT=3000 java -jar metabase.jar > /dev/null 2>&1 &
+cd ..
 ```
 
 > Note: the last part is to keep it silent on Linux, you can also remove it. If so, open a new terminal, even if running the script in the background as it will generate ~~noise~~ logs.
@@ -152,6 +155,7 @@ The pipeline will be executed from the `Financial_Data_Report/src`, where you'll
 So let's move on and go through each of them, but first make sure you're in the `src` folder:
 
 ```sh
+cd kensu-public-examples
 cd Financial_Data_Report
 cd src
 ```
@@ -208,7 +212,7 @@ This has overriden the data and the report with current months information.
 
 We need to refresh the dataset to scan it again, this is done in the `Settings > Databases` then click on your data and click on `Re-scan field values now`.
 
-So we can refresh the dashboard.
+So we can access to the table again and review the data.
 
 ### Troubleshooting: a (painful) story 🥺
 
@@ -261,50 +265,159 @@ Here is the situation we have discovered
 ![](images/4%20-%20Pipeline%20Data%20Stock%20Split.png).
 
 What we have learned, the hard way, two things:
-- The amount of data cannot variate too much between two months (working days)
-- The number of `Symbol`s too
+- The amount of data cannot variate too much between two months (working days).
+- The number of `Symbol`s too.
 
 ## Introduce Data Observability (at the Source) 
-Add information aboyt data, lineage, and historical behavior.
+
+What we want now are two things:
+- Avoid this situation, 
+- Or, if ever it happens again, solve it faster and without losing the trust
+
+From the business point of view, the consequence will be an optimized process reducing the probability of loss due to inappropriate decisions upon data.
+
+The information, we were struggling to find can mostly observations that can be generated from both applications taking part in the pipelines, in fact, Metabase could also generate such observations.
+
+Here are the observations, we would have been interested into:
+- which data that seems odd
+- the application producing the data
+- the lineage (data and application) upstream
+- the location of the data
+- the structure of the data
+- the distribtion of the data sets along the process
+
+So let's see how we can generate those by applying the Data Observability at the Source principles -- which relies on intelligent agents next to the data usage.
+
+In this section, we'll use the code in the `with_do` folder, the codes have been updated with the agents (see section below), before jumping into this part, let's configure the location of the API and the credentials. We need the API and credentials to allow the applications to publish the observations to the Kensu platform -- we'll see why.
+
+This is what the pipeline will look like after having set the config and add the agents:
+![](images/5%20-%20Pipeline%20with%20Agents.png)
 
 ### Configure Data Observability Agent
 
+To configure the agents, you'll need to use provide tokens in your Kensu Community Edition's account.
 
-> Review code in `with_do`
+So first thing to do is to log onto the [Kensu platform](https://www.kensu.io/community-edition-form) to copy them.
 
-To run it, we need the configuration file to be provided as ENV
-Let's copy the default file locally and set the variable:
+When logged in, come back to your terminal and copy the `conf.ini` to provide your info, we'll export this file as a dedicated environment variable to tell the agent where to fetch the configuration. Here is the commands, assuming you are still in the `src` folder:
 
 ```sh
 cp ../conf.ini ../.conf.ini
 export CONF_FILE=../.conf.ini
 vim ../.conf.ini
 ```
+When this is done, open the copied file in an editor (e.g., `vim`) and edit those variables:
+- `token`: this token is available in the [Kensu settings page](https://community.kensuapp.com/preferences?tabKey=INGESTION)
+- `PAT`: copy it on the [External app page](https://community.kensuapp.com/preferences?tabKey=EXTERNAL_APPLICATIONS)
 
-And fill in the `token` and `PAT`, then save with `<ESC>:wq`.
+Then save.
+
+### Configure Slack
+
+We'll see later why, but let's connect, for example, the [Kensu User Community Slack](https://join.slack.com/t/kensu-user-community/shared_invite/zt-1fwn7fssh-SS4kAilgc2CJ7fBTKbzbmw) to our the Kensu platform.
+
+To do so, navigate to [this page](https://community.kensuapp.com/preferences?tabKey=EXTERNAL_APPLICATIONS) and follow the instructions to connect to Slack.
+
+> Note: the Slack selector is on the top right of the page when you are in the Slack connector page.
+
+### Analyze the code changes
+
+In order to import the agent and use it, let's analyze the code changes that were applied between `_yolo` and `with_do`. In VS Code, we can select two files and the context menu has a `compared selected` entry.
+
+Check out both:
+- `data_ingestion.py`, and
+- `reporting_spark.py`
+
 ### November
+
+It is time to deploy and run the pipeline for november again and analyze the observations in Kensu.
+
+#### Run 
 
 ```sh
 python3 with_do/data_ingestion.py nov 2021 ; python3 with_do/reporting_spark.py nov 2021
 ```
 
+#### Check the observations
+
+Navigate to your projects page and click on `Financial Report`. We see the applications shown before.
+
+Now, click on the `Reporting` application (the triple dots). We see the lineage that connects the `monthly_assets.csv` to the two reports.
+
+Let's see what we have in the `buzzfeed.csv` file (click on the arrow). We see the observations, such as location, format, but also if we scroll, we'll see:
+- Observations panel: to review the profiling information
+- Rules (see below): to add rules using the observations
+- Lineages: the up and down stream data lineage
+- List of fields: the schema
+
+All those observations were collected by the agent by default.
+
+We can look around and check what kind of profiling information we have, for this scroll to `Observations` and click on `+ Select Attributes`. Select `nrows` and `Intraday_Delta` to see the profiling information send during the `nov` run, including distribution information about the `Intraday_Delta`.
+
 #### Add rule in Kensu Data Observability Platform
 
-Go add the business rule => Delta => expresses the risk taken
+We imagine that we have not done the troubleshooting process, we have rebased the timeline.
+
+However, during the projet discussion, the stakeholders shared with us that the `Intraday_Delta` to be reported is important because it's variability (`std`) represents the risks.
+
+Hence, we will add a rule for this. To add it, scroll to the `Rules` panel, and click on `Add Rule`, choose `Min/Max`, select `Intraday_Delta.std` which is the standard deviation of that column, and set `0.2` in the max input. This tells Kensu that this `std` can not be more than `0.2`. In such case, an event is triggered and a ticket is created.
+
+Let's trigger it then!
 
 ### December
+
+This is where everything kicks in... let's see what happens, even if we haven't got much information yet about what are other factors to be monitored.
+
+#### Run
 ```sh
 python3 with_do/data_ingestion.py dec 2021 ; python3 with_do/reporting_spark.py dec 2021
 ```
 
-### Troubleshooting: like a boss 😎
-> error! but what if no error... we see the value exploding. An automated observer can too...
+#### Analyze the observations
+But wait no... in fact, there is a notification in Slack!
+![](images/6%20-%20Slack%20Notification.png)
 
+### Troubleshooting: like a boss 😎
+
+Click on `Go Ticket` in Slack. You'll end up in the ticket page of that issue.
+
+From there, we can see that the error is:
+- in the `Financial Report` project
+- for the application `Reporting`
+- the issue is on the data source `buzzfeed.csv`.
+
+Those are all browsable link about the context of that issue, providing already several answers to questions mentioned before. Within a second.
+
+Let's go to the data source page now, click on `buzzfeed.csv`.
+
+In fact, the `std` has variated too much (which we know is not the issue but..), the reason is that it couldn't be smoothned because we don't have enough values.
+
+Nevertheless, we have an issue. Let's use the observations to review what we have.
+
+Because we're entering in debugging mode, we're performing a `Root Cause Analysis`. In Kensu, you will perform this in the `Explorer` tab. You can access it by clicking on the exclamation mark of the rule that has errored.
+
+In this, we'll check the stats for the buzzfeed by clicking of the nodge (presenting a chart). Then we select the attributes we want to show in the chart below: `nrows` and `Intraday_Delta > std`.
+
+In no time, we see that the `nrows` has dropped at the same time as the `std` grew too.
+
+We then browse the lineage to review the metrics along the pipeline. We can take a look at the production of the data in `monthly_assets` by clicking on its input nodge. Reviewing the observations, you end up looking at `Symbol.num_categories` which represents the number of categories for `Symbol` and `nrows`. Whilst `nrows` doesn't provide much information, the `Symbol.num_categories` has changed from `6` to `7`. This is interesting, as categories change rarely... well rarely without creating troubles at least 😅.
+
+We can then analyze each input one by one to find which input may have introduced this.
+We can of course analyze the code, but the lineage shows the `Buzzfeed.csv` input file, and because the problem is on its report, it is probably a good one to start with.
+
+Clicking on its nodge, and selecting the same observations, you'll see the change in the categories too. And because, the categories are published as well with the counts, we can see in the `+ Select Attributes` that two attributes are shown: `BZFD` and `ENFA`.
+
+We add them to the chart, and we end up with this
+![](images/7%20-%20Observations%20Buzzfeed%20Stocks.png)
+
+Well... `BZFD` was not present in `nov` and `ENFA` has `3` values in `dec`.
+
+Nailed it!
 
 
 ## Data Observability with Rules
 
-> what if we knew some business rules.. or simply we anticipated the error (like in tests)? 
+> what about the business rules we knew about.. or simply we anticipated the error (like in tests)? 
 > => rule programmatically
 
 ### January

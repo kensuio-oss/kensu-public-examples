@@ -23,7 +23,7 @@ apptech['Intraday_Delta'] = apptech['Adj Close'] - apptech['Open']
 kept_values = ['Date', 'Open', 'Adj Close', 'Intraday_Delta']
 
 # We programmatically add a Variability rule on the report_AppTech data source
-add_variability_constraint_data_source('report_AppTech.csv', "Adj Close.mean", variation_in_percent=30)
+add_variability_constraint_data_source('AppTech.csv', "Adj Close.mean", variation_in_percent=30)
 
 Buzzfeed[kept_values].to_csv("../datasources/report/buzzfeed.csv", index=False)
 apptech[kept_values].to_csv("../datasources/report/AppTech.csv", index=False)

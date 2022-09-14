@@ -33,8 +33,8 @@ kept_values = ['Date', 'Open', 'Adj Close', 'Intraday_Delta']
 final_report_buzzfeed = buzz_report[kept_values]
 final_report_apptech = apptech_report[kept_values]
 
-# We programmatically add a Variability rule on the report_AppTech data source
-add_variability_constraint_data_source('report_AppTech.csv', "Adj Close.mean", variation_in_percent=30)
+# We programmatically add a Variability rule on the AppTech data source
+add_variability_constraint_data_source('AppTech.csv', "Adj Close.mean", variation_in_percent=30)
 K().instance().send_rules()
 
 final_report_buzzfeed.write.mode('overwrite').csv("../datasources/report/buzzfeed.csv")
