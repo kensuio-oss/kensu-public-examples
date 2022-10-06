@@ -3,7 +3,7 @@
 import urllib3
 urllib3.disable_warnings()
 import os
-os.environ['CONF_FILE']="../conf.ini"
+os.environ['KSU_CONF_FILE']="../conf.ini"
 
 import logging
 logger = logging.getLogger('my-logger')
@@ -22,12 +22,12 @@ from kensu.pyspark import init_kensu_spark
 
 #Inject Kensu agent in spark session: Add the path to the .jar to the SparkSession
 spark = SparkSession.builder.appName("Example")\
-    .config("spark.driver.extraClassPath", "../lib/kensu-dam-spark-collector-0.17.3_spark-3.0.1.jar")\
+    .config("spark.driver.extraClassPath", "../lib/kensu-spark-collector-1.0.0-SNAPSHOT_spark-3.0.1.jar")\
     .getOrCreate()
-spark.sparkContext.setLogLevel("OFF")
+spark.sparkContext.setLogLevel("WARN")
 
 #Inject Kensu agent in spark session: Link the spark job to Kensu
-init_kensu_spark(spark,explicit_process_name = "Reporting",input_stats=False,kensu_py_client=True)
+init_kensu_spark(spark,process_name="Reporting",compute_input_stats=False,output_stats_compute_std_dev=True,use_api_client=True)
 
 #Core Script: Extract data from the monthly_assets data source and create 2 reports with a new column
 all_assets = spark.read.option("inferSchema","true").option("header","true").csv("../datasources/%s/%s/monthly_assets.csv"%(year,month))

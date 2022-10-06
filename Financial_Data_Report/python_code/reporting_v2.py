@@ -4,7 +4,7 @@ import urllib3
 urllib3.disable_warnings()
 
 import os
-os.environ['CONF_FILE']="../conf.ini"
+os.environ['KSU_CONF_FILE']="../conf.ini"
 import sys
 
 month = sys.argv[1]
@@ -12,7 +12,7 @@ year = sys.argv[2]
 
 #Initialize Kensu tracking
 from kensu.utils.kensu_provider import KensuProvider as K
-k = K().initKensu(process_name="Reporting",get_code_version = lambda : 'v1',input_stats=False)
+k = K().initKensu(process_name="Reporting",get_code_version = lambda : 'v1',compute_input_stats=False)
 
 #Inject Kensu agent in pandas library
 import kensu.pandas as pd

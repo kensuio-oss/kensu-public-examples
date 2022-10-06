@@ -1,2 +1,7 @@
 Marketing_Campaign/example_marketing/logs/
 Marketing_Campaign/example_marketing/target/
+kensu_env
+venv
+*_SUCCESS*
+*part-*
+monthly_assets.csv

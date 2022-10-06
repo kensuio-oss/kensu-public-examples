@@ -3,7 +3,7 @@
 import urllib3
 urllib3.disable_warnings()
 import os
-os.environ['CONF_FILE']="../conf.ini"
+os.environ['KSU_CONF_FILE']="../conf.ini"
 
 import sys
 
