@@ -3,6 +3,7 @@
 import urllib3
 urllib3.disable_warnings()
 import os
+import shutil
 os.environ['KSU_CONF_FILE']="../conf.ini"
 
 import logging
@@ -59,3 +60,7 @@ final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_Ap
 import time
 time.sleep(30)
 spark.stop()
+
+# Cleanup the metadata
+shutil.rmtree("../datasources/%s/%s/report_buzzfeed.csv"%(year,month))
+shutil.rmtree("../datasources/%s/%s/report_AppTech.csv"%(year,month))

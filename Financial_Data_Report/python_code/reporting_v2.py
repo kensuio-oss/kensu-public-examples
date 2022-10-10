@@ -36,3 +36,7 @@ add_variability_constraint_data_source('report_AppTech.csv',"Adj Close.mean",var
 
 Buzzfeed[kept_values].to_csv("../datasources/%s/%s/report_buzzfeed.csv"%(year,month),index=False)
 apptech[kept_values].to_csv("../datasources/%s/%s/report_AppTech.csv"%(year,month),index=False)
+
+# Cleanup the metadata
+os.remove("../datasources/%s/%s/report_buzzfeed.csv"%(year,month))
+os.remove("../datasources/%s/%s/report_AppTech.csv"%(year,month))
