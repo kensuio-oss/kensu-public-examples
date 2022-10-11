@@ -1,5 +1,4 @@
 pandas==1.3.5
-# FIXME me, set when testing done
-#//kensu==2.0.0
+kensu==2.0.0
 pyspark==3.0.1
 packaging
