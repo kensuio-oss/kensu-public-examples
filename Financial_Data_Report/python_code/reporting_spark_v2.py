@@ -15,6 +15,11 @@ import sys
 month = sys.argv[1]
 year = sys.argv[2]
 
+# download kensu spark collector jar if doesn't exist in ../lib/
+from spark_collector_downloader import maybe_download_spark_collector, kensu_agent_jar_local_path
+maybe_download_spark_collector(kensu_agent_jar_local_path)
+
+
 from pyspark.sql import SparkSession
 
 
@@ -23,7 +28,7 @@ from kensu.pyspark import init_kensu_spark
 
 #Inject Kensu agent in spark session: Add the path to the .jar to the SparkSession
 spark = SparkSession.builder.appName("Example")\
-    .config("spark.driver.extraClassPath", "../lib/kensu-spark-collector-1.0.0-rc466_spark-3.0.1.jar")\
+    .config("spark.driver.extraClassPath", kensu_agent_jar_local_path)\
     .getOrCreate()
 spark.sparkContext.setLogLevel("WARN")
 
