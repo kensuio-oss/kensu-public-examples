@@ -55,7 +55,3 @@ final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_Ap
 import time
 time.sleep(30)
 spark.stop()
-
-# Cleanup the metadata
-shutil.rmtree("../datasources/%s/%s/report_buzzfeed.csv"%(year,month))
-shutil.rmtree("../datasources/%s/%s/report_AppTech.csv"%(year,month))
