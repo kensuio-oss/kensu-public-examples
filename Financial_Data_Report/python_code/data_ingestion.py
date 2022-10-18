@@ -27,4 +27,5 @@ iMetal = pd.read_csv("../datasources/%s/%s/iMetal.csv"%(year,month),parse_dates=
 AppTech = pd.read_csv("../datasources/%s/%s/AppTech.csv"%(year,month),parse_dates=['Date'],dtype={'Symbol':'category'})
 
 monthly_assets = pd.concat([Apple,Buzzfeed,EURUSD,Microsoft,iMetal,AppTech]).astype({"Symbol": 'category'})
-monthly_assets.to_csv("../datasources/%s/%s/monthly_assets.csv"%(year,month),index=False)
+mode_overwrite='w+'
+monthly_assets.to_csv("../datasources/%s/%s/monthly_assets.csv"%(year,month),index=False,mode=mode_overwrite)
