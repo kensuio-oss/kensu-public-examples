@@ -2,7 +2,7 @@
 # jar_name = 'kensu-spark-collector-1.0.0-rc466_spark-3.0.1.jar'
 # jar_name = 'kensu-spark-collector-1.0.0-alpha221011180019_spark-3.2.1.jar'
 # jar_name = 'kensu-spark-collector-0.25.3_spark-3.0.1.jar'
-jar_name = 'kensu-spark-collector-1.0.0-rc466_spark-3.0.1.jar'
+jar_name = 'kensu-spark-collector-1.0.0_spark-3.0.1.jar'
 
 base_url = 'https://public.usnek.com/n/repository/public/releases/kensu-spark-collector'
 

@@ -48,8 +48,9 @@ kept_values = ['Open','Adj Close','Intraday_Delta']
 final_report_buzzfeed = buzz_report[kept_values]
 final_report_apptech = apptech_report[kept_values]
 
-final_report_buzzfeed.write.mode('overwrite').csv("../datasources/%s/%s/report_buzzfeed.csv"%(year,month))
-final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_AppTech.csv"%(year,month))
+# spark creates a directory instead of file, so use distinct name from .csv
+final_report_buzzfeed.write.mode('overwrite').csv("../datasources/%s/%s/report_buzzfeed_csv"%(year,month))
+final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_AppTech_csv"%(year,month))
 
 #Stop the Spark session after having sent the metadata
 import time

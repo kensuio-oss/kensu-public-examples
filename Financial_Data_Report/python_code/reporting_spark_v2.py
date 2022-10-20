@@ -52,14 +52,15 @@ final_report_apptech = apptech_report[kept_values]
 #We programmatically add a Variability rule on the report_AppTech data source
 
 from kensu.utils.rule_engine import add_variability_constraint_data_source
-add_variability_constraint_data_source('report_AppTech.csv',"Adj Close.mean",variation_in_percent=30)
+add_variability_constraint_data_source('report_AppTech_csv',"Adj Close.mean",variation_in_percent=30)
 
 from kensu.utils.kensu_provider import KensuProvider as K
 k=K().instance()
 k.send_rules()
 
-final_report_buzzfeed.write.mode('overwrite').csv("../datasources/%s/%s/report_buzzfeed.csv"%(year,month))
-final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_AppTech.csv"%(year,month))
+# spark creates a directory instead of file, so use distinct name from .csv
+final_report_buzzfeed.write.mode('overwrite').csv("../datasources/%s/%s/report_buzzfeed_csv"%(year,month))
+final_report_apptech.write.mode('overwrite').csv("../datasources/%s/%s/report_AppTech_csv"%(year,month))
 
 #Stop the Spark session after having sent the metadata
 import time
