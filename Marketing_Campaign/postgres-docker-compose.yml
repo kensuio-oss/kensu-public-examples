@@ -10,7 +10,7 @@ services:
       - "5432:5432"
 
   kensu_load_data_with_pandas_v1:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
       KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
@@ -22,7 +22,7 @@ services:
       - mypostgres
 
   kensu_load_data_with_pandas_v2:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
       KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
@@ -34,7 +34,7 @@ services:
       - mypostgres
 
   kensu_run_dbt_postgres:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
       KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
       DBT_CURRENT_PROJECT_DIR: "/kensu-dbt-example/dbt-projects/example_marketing"
