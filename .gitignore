@@ -1,2 +1,13 @@
 Marketing_Campaign/example_marketing/logs/
 Marketing_Campaign/example_marketing/target/
+Financial_Data_Report/datasources/2021/nov/report_AppTech
+Financial_Data_Report/datasources/2021/nov/report_buzzfeed
+Financial_Data_Report/datasources/2021/dec/report_AppTech
+Financial_Data_Report/datasources/2021/dec/report_buzzfeed
+Financial_Data_Report/datasources/2022/jan/report_AppTech
+Financial_Data_Report/datasources/2022/jan/report_buzzfeed
+kensu_env
+venv
+*_SUCCESS*
+*part-*
+monthly_assets.csv

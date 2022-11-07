@@ -10,9 +10,9 @@ services:
       - "5432:5432"
 
   kensu_load_data_with_pandas_v1:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
-      CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
+      KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
       - ./pandas-load-data:/pandas-load-data
       - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
@@ -22,9 +22,9 @@ services:
       - mypostgres
 
   kensu_load_data_with_pandas_v2:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
-      CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
+      KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
     volumes:
       - ./pandas-load-data:/pandas-load-data
       - ./conf.default.ini:/kensu-dbt-example/conf.custom.ini
@@ -34,9 +34,9 @@ services:
       - mypostgres
 
   kensu_run_dbt_postgres:
-    image: kensuio/kensu-dbt-postgres:dev9
+    image: kensuio/kensu-dbt-postgres:dev2.0
     environment:
-      CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
+      KSU_CONF_FILE: "/kensu-dbt-example/conf.custom.ini"
       DBT_CURRENT_PROJECT_DIR: "/kensu-dbt-example/dbt-projects/example_marketing"
     volumes:
       # - ./sql-parser.log:/kensu-dbt-example/sql-parser.log
